@@ -56,7 +56,7 @@ def create_question():
     except ValidationError as exc:
         return jsonify({
             "error": "Validation error",
-            "details": exc.errors(),
+            "messages": exc.errors(),
         }), 422
 
     question = Question(text=question_in.text)
